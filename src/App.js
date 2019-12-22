@@ -33,18 +33,15 @@ class App extends Component {
   }
 
   render() {
+    const {monsters, searchText} = this.state
+    const filteredMonsters = monsters.filter(m => m.name.toLowerCase().includes(searchText.toLowerCase()))
     return (
       <div className="App">
         <p><button onClick={this.sortByName}>Sort by name</button></p>
         <p>
-          // note how you can do full javascript in the onChange
-          // also note the use of a callback in the this.setState call
-          <input type='search' placeholder='Search Monsters' onChange={event => {
-            this.setState({searchText: event.target.value}, () => console.log(this.state.searchText))
-            console.log(this.state.searchText)
-          }} />
+          <input type='search' placeholder='Search Monsters' onChange={event => this.setState({searchText: event.target.value})} />
         </p>
-        <CardList monsters={this.state.monsters}/>        
+        <CardList monsters={filteredMonsters}/>        
       </div>
     );
   }
