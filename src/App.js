@@ -39,7 +39,7 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Monster Book</h1>
-        <p><button onClick={this.sortByName}>Sort by name</button></p>
+        <p><button onClick={this.sortByName}>Sort{this.state.currentSort === 0 ? '' : this.state.currentSort === 1 ? '+' : '-'}</button></p>
         <p>
           <SearchBox 
             placeholder='Search Monsters'
