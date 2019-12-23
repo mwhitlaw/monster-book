@@ -38,6 +38,7 @@ class App extends Component {
     const filteredMonsters = monsters.filter(m => m.name.toLowerCase().includes(searchText.toLowerCase()))
     return (
       <div className="App">
+        <h1>Monster Book</h1>
         <p><button onClick={this.sortByName}>Sort by name</button></p>
         <p>
           <SearchBox 
